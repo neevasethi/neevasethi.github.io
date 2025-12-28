@@ -45,6 +45,15 @@
             font-weight: 500;
             color: #3d3530;
             letter-spacing: 0.5px;
+            border: 2px solid #3d3530;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .logo:hover {
+            background: #3d3530;
+            color: #f5f1eb;
         }
 
         .nav-links {
@@ -101,6 +110,12 @@
 
         body.dark-mode .logo {
             color: #e0e0e0;
+            border-color: #e0e0e0;
+        }
+
+        body.dark-mode .logo:hover {
+            background: #e0e0e0;
+            color: #1a1a1a;
         }
 
         body.dark-mode .nav-links a {
@@ -466,8 +481,10 @@
         function updateLogoColor() {
             if (body.classList.contains('dark-mode')) {
                 logo.style.color = '#e0e0e0';
+                logo.style.borderColor = '#e0e0e0';
             } else {
                 logo.style.color = '#3d3530';
+                logo.style.borderColor = '#3d3530';
             }
         }
     </script>
