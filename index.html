@@ -220,6 +220,47 @@
             margin-top: 1rem;
         }
 
+        .hero-links {
+            font-size: 0.95rem;
+            color: #8b7d73;
+            font-weight: 300;
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .hero-links a {
+            color: #6b5d54;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .hero-links a:hover {
+            color: #3d3530;
+        }
+
+        .hero-links svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        body.dark-mode .hero-links {
+            color: #a0a0a0;
+        }
+
+        body.dark-mode .hero-links a {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .hero-links a:hover {
+            color: #e0e0e0;
+        }
+
         /* Section Styles */
         .section {
             max-width: 900px;
@@ -420,6 +461,22 @@
             <h1><span id="typing-text" class="typing-text"></span></h1>
             <p class="hero-description">Challenging the assumptions holding large systems together.</p>
             <p class="hero-fixation">Current fascination: learning and teaching how to speak better -- it's the human advantage we have over AI, and it can literally change your life</p>
+            <div class="hero-links">
+                <span>Check out my</span>
+                <a href="https://substack.com/@neevasethi" target="_blank">
+                    articles (works in progress)
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/>
+                    </svg>
+                </a>
+                <span>&</span>
+                <a href="https://curius.app/neeva-sethi" target="_blank">
+                    recent reads
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
 
