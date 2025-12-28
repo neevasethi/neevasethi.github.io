@@ -478,11 +478,13 @@
             updateLogoColor();
         });
 
-        function updateLogoColor() {
+    function updateLogoColor() {
             if (body.classList.contains('dark-mode')) {
                 logo.style.color = '#e0e0e0';
+                logo.style.borderColor = '#e0e0e0';
             } else {
                 logo.style.color = '#3d3530';
+                logo.style.borderColor = '#3d3530';
             }
         }
     </script>
