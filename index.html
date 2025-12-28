@@ -45,6 +45,25 @@
             font-weight: 500;
             color: #3d3530;
             letter-spacing: 0.5px;
+            border: 2px solid #3d3530;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .logo:hover {
+            background: #3d3530;
+            color: #f5f1eb;
+        }
+
+        body.dark-mode .logo {
+            color: #e0e0e0;
+            border-color: #e0e0e0;
+        }
+
+        body.dark-mode .logo:hover {
+            background: #e0e0e0;
+            color: #1a1a1a;
         }
 
         .nav-links {
@@ -579,7 +598,7 @@
             </div>
             <div class="work-item">
                 <div class="work-title">Medreminder</div>
-                <div class="work-description">Built a automated medication reminder application to reduce preventable hospitalizations, increase medical management accessibility, and improve adherence</div>
+                <div class="work-description">Built a automated medication reminder application to educe preventable hospitalizations, increase medical management accessibility, and improve adherence</div>
             </div>
             <div class="work-item">
                 <div class="work-title">Dream Team Engineering</div>
@@ -602,18 +621,12 @@
                 <div class="work-title">Health Disparities & Promotion Research Lab</div>
                 <div class="work-description">Conducted qualitative research and data analysis on health disparities. Focused on the integration of health promotions into medicine and holistic, preventative health via community-based participatory research</div>
             </div>
-            <div class="work-item">
-                <div class="work-title">Mobile Outreach Clinic</div>
-                <div class="work-description">Provided free healthcare services to 500+ patients in the underserved and uninsured population in Gainesville, FL with the goal of eliminating traditional barriers to healthcare and improving the overall community health</div>
-            </div>
-            <div class="work-item">
-                <div class="work-title">Pediatric Intensive Care Unit Volunteer</div>
-                <div class="work-description">Volunteered weekly with children in the PCICU + PICU to bring joy to the little ones</div>
-            </div>
-            <div class="work-item">
-                <div class="work-title">CNA</div>
-                <div class="work-description">Worked at a memory care home during the COVID-19 shortage to help some of the older folks with daily needs</div>
-            </div>
+            <ul>
+                <li>Mobile Outreach Clinic</li>
+                <li>Equal Access Clinic Network Research</li>
+                <li>Pediatric Intensive Care Unit Volunteer</li>
+                <li>CNA</li>
+            </ul>
         </div>
 
         <div class="separator"></div>
@@ -697,10 +710,13 @@
         });
 
         function updateLogoColor() {
+            const logo = document.querySelector('.logo');
             if (body.classList.contains('dark-mode')) {
                 logo.style.color = '#e0e0e0';
+                logo.style.borderColor = '#e0e0e0';
             } else {
                 logo.style.color = '#3d3530';
+                logo.style.borderColor = '#3d3530';
             }
         }
     </script>
