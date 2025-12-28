@@ -66,6 +66,100 @@
             color: #3d3530;
         }
 
+        /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            fill: #6b5d54;
+            transition: fill 0.3s;
+        }
+
+        .theme-toggle:hover svg {
+            fill: #3d3530;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode nav {
+            background: rgba(30, 30, 30, 0.98);
+            border-bottom: 1px solid #333;
+        }
+
+        body.dark-mode .logo {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .nav-links a {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .nav-links a:hover {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .theme-toggle svg {
+            fill: #b0b0b0;
+        }
+
+        body.dark-mode .theme-toggle:hover svg {
+            fill: #e0e0e0;
+        }
+
+        body.dark-mode .page-header {
+            background: #1f1f1f;
+        }
+
+        body.dark-mode .page-header h1,
+        body.dark-mode .content-block h3 {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .page-header p,
+        body.dark-mode .content-block p,
+        body.dark-mode .content-block li {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .info-label,
+        body.dark-mode .section-title {
+            color: #808080;
+        }
+
+        body.dark-mode .info-value {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .separator {
+            background: #333;
+        }
+
+        body.dark-mode .bottom-bar {
+            background: rgba(30, 30, 30, 0.98);
+            border-top: 1px solid #333;
+        }
+
+        body.dark-mode .bottom-bar svg {
+            fill: #b0b0b0;
+        }
+
+        body.dark-mode .bottom-bar a:hover svg {
+            fill: #e0e0e0;
+        }
+
         /* Page Header */
         .page-header {
             margin-top: 80px;
@@ -97,6 +191,7 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 4rem 3rem;
+            margin-bottom: 80px;
         }
 
         .section-title {
@@ -217,7 +312,6 @@
             color: #a89582;
             font-size: 0.9rem;
             font-weight: 300;
-            margin-bottom: 80px;
             display: none;
         }
 
@@ -230,7 +324,7 @@
             background: rgba(250, 247, 242, 0.98);
             padding: 1rem 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             border-top: 1px solid #e8e1d6;
             z-index: 1000;
@@ -240,12 +334,6 @@
             display: flex;
             gap: 2rem;
             align-items: center;
-        }
-
-        .bottom-bar-right {
-            font-size: 0.9rem;
-            color: #a89582;
-            font-weight: 300;
         }
 
         .bottom-bar a {
@@ -318,7 +406,7 @@
     <!-- Page Header -->
     <div class="page-header">
         <div class="page-header-content">
-            <h1>welcome to my life in pictures</h1>
+            <h1>Life Via Images</h1>
         </div>
     </div>
 
@@ -351,5 +439,37 @@
             </a>
         </div>
     </div>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const logo = document.querySelector('.logo');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            updateLogoColor();
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Save theme preference
+            const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            
+            updateLogoColor();
+        });
+
+        function updateLogoColor() {
+            if (body.classList.contains('dark-mode')) {
+                logo.style.color = '#e0e0e0';
+            } else {
+                logo.style.color = '#3d3530';
+            }
+        }
+    </script>
 </body>
 </html>
