@@ -66,6 +66,107 @@
             color: #3d3530;
         }
 
+                /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            fill: #6b5d54;
+            transition: fill 0.3s;
+        }
+
+        .theme-toggle:hover svg {
+            fill: #3d3530;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode nav {
+            background: rgba(30, 30, 30, 0.98);
+            border-bottom: 1px solid #333;
+        }
+
+        body.dark-mode .logo {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .nav-links a {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .nav-links a:hover {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .theme-toggle svg {
+            fill: #b0b0b0;
+        }
+
+        body.dark-mode .theme-toggle:hover svg {
+            fill: #e0e0e0;
+        }
+
+        body.dark-mode .hero {
+            background: #1f1f1f;
+        }
+
+        body.dark-mode .hero h1,
+        body.dark-mode .content-block h3 {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .typing-text {
+            border-right-color: #e0e0e0;
+        }
+
+        body.dark-mode .hero-description,
+        body.dark-mode .hero-fixation {
+            color: #a0a0a0;
+        }
+
+        body.dark-mode .info-label {
+            color: #808080;
+        }
+
+        body.dark-mode .info-value,
+        body.dark-mode .content-block p {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .separator {
+            background: #333;
+        }
+
+        body.dark-mode .bottom-bar {
+            background: rgba(30, 30, 30, 0.98);
+            border-top: 1px solid #333;
+        }
+
+        body.dark-mode .bottom-bar-right {
+            color: #808080;
+        }
+
+        body.dark-mode .bottom-bar svg {
+            fill: #b0b0b0;
+        }
+
+        body.dark-mode .bottom-bar a:hover svg {
+            fill: #e0e0e0;
+        }
+
         /* Page Header */
         .page-header {
             margin-top: 80px;
