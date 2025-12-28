@@ -66,7 +66,7 @@
             color: #3d3530;
         }
 
-                /* Theme Toggle */
+        /* Theme Toggle */
         .theme-toggle {
             background: none;
             border: none;
@@ -119,30 +119,27 @@
             fill: #e0e0e0;
         }
 
-        body.dark-mode .hero {
+        body.dark-mode .page-header {
             background: #1f1f1f;
         }
 
-        body.dark-mode .hero h1,
+        body.dark-mode .page-header h1,
         body.dark-mode .content-block h3 {
             color: #e0e0e0;
         }
 
-        body.dark-mode .typing-text {
-            border-right-color: #e0e0e0;
+        body.dark-mode .page-header p,
+        body.dark-mode .content-block p,
+        body.dark-mode .content-block li {
+            color: #b0b0b0;
         }
 
-        body.dark-mode .hero-description,
-        body.dark-mode .hero-fixation {
-            color: #a0a0a0;
-        }
-
-        body.dark-mode .info-label {
+        body.dark-mode .info-label,
+        body.dark-mode .section-title {
             color: #808080;
         }
 
-        body.dark-mode .info-value,
-        body.dark-mode .content-block p {
+        body.dark-mode .info-value {
             color: #b0b0b0;
         }
 
@@ -153,10 +150,6 @@
         body.dark-mode .bottom-bar {
             background: rgba(30, 30, 30, 0.98);
             border-top: 1px solid #333;
-        }
-
-        body.dark-mode .bottom-bar-right {
-            color: #808080;
         }
 
         body.dark-mode .bottom-bar svg {
@@ -198,6 +191,7 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 4rem 3rem;
+            margin-bottom: 80px;
         }
 
         .section-title {
@@ -318,7 +312,6 @@
             color: #a89582;
             font-size: 0.9rem;
             font-weight: 300;
-            margin-bottom: 80px;
             display: none;
         }
 
@@ -331,7 +324,7 @@
             background: rgba(250, 247, 242, 0.98);
             padding: 1rem 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             border-top: 1px solid #e8e1d6;
             z-index: 1000;
@@ -341,12 +334,6 @@
             display: flex;
             gap: 2rem;
             align-items: center;
-        }
-
-        .bottom-bar-right {
-            font-size: 0.9rem;
-            color: #a89582;
-            font-weight: 300;
         }
 
         .bottom-bar a {
@@ -434,7 +421,7 @@
 
     <!-- Fixed Bottom Bar -->
     <div class="bottom-bar">
-        <div class="bottom-bar-right">
+        <div class="bottom-bar-left">
             <a href="https://www.linkedin.com/in/neeva-sethi-29118b18b/" target="_blank" aria-label="LinkedIn">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
@@ -452,5 +439,37 @@
             </a>
         </div>
     </div>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const logo = document.querySelector('.logo');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            updateLogoColor();
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Save theme preference
+            const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            
+            updateLogoColor();
+        });
+
+        function updateLogoColor() {
+            if (body.classList.contains('dark-mode')) {
+                logo.style.color = '#e0e0e0';
+            } else {
+                logo.style.color = '#3d3530';
+            }
+        }
+    </script>
 </body>
 </html>
