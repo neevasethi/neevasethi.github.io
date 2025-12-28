@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Neeva Sethi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: #4a4238;
+            background: #f5f1eb;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(250, 247, 242, 0.98);
+            padding: 1.5rem 3rem;
+            z-index: 1000;
+            border-bottom: 1px solid #e8e1d6;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #3d3530;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b5d54;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: color 0.3s;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:hover {
+            color: #3d3530;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            fill: #6b5d54;
+            transition: fill 0.3s;
+        }
+
+        .theme-toggle:hover svg {
+            fill: #3d3530;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode nav {
+            background: rgba(30, 30, 30, 0.98);
+            border-bottom: 1px solid #333;
+        }
+
+        body.dark-mode .logo {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .nav-links a {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .nav-links a:hover {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .theme-toggle svg {
+            fill: #b0b0b0;
+        }
+
+        body.dark-mode .theme-toggle:hover svg {
+            fill: #e0e0e0;
+        }
+
+        body.dark-mode .page-header {
+            background: #1f1f1f;
+        }
+
+        body.dark-mode .page-header h1,
+        body.dark-mode .content-block h3 {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .page-header p,
+        body.dark-mode .content-block p,
+        body.dark-mode .content-block li {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .info-label,
+        body.dark-mode .section-title {
+            color: #808080;
+        }
+
+        body.dark-mode .info-value {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .separator {
+            background: #333;
+        }
+
+        body.dark-mode .bottom-bar {
+            background: rgba(30, 30, 30, 0.98);
+            border-top: 1px solid #333;
+        }
+
+        body.dark-mode .bottom-bar svg {
+            fill: #b0b0b0;
+        }
+
+        body.dark-mode .bottom-bar a:hover svg {
+            fill: #e0e0e0;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 4rem 3rem 2rem;
+            background: #faf7f2;
+        }
+
+        .page-header-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: #3d3530;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: #6b5d54;
+            font-weight: 300;
+        }
+
+        /* Section Styles */
+        .section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 3rem;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #a89582;
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        .content-block {
+            margin-bottom: 3rem;
+        }
+
+        .content-block h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: #3d3530;
+        }
+
+        .content-block .subtitle {
+            font-size: 1rem;
+            color: #6b5d54;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .content-block p {
+            font-size: 1rem;
+            color: #6b5d54;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .content-block ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .content-block li {
+            font-size: 1rem;
+            color: #6b5d54;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .content-block li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #d4c9bc;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            padding: 0;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #a89582;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            color: #4a4238;
+            font-weight: 300;
+        }
+
+        .links {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #6b5d54;
+            font-size: 0.95rem;
+            font-weight: 300;
+            transition: color 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .links a:hover {
+            color: #3d3530;
+            border-bottom: 1px solid #3d3530;
+        }
+
+        /* Separator */
+        .separator {
+            width: 100%;
+            height: 1px;
+            background: #e8e1d6;
+            margin: 4rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #a89582;
+            font-size: 0.9rem;
+            font-weight: 300;
+            display: none;
+        }
+
+        /* Fixed Bottom Bar */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(250, 247, 242, 0.98);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            border-top: 1px solid #e8e1d6;
+            z-index: 1000;
+        }
+
+        .bottom-bar-left {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .bottom-bar a {
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .bottom-bar a:hover {
+            opacity: 0.7;
+        }
+
+        .bottom-bar svg {
+            width: 24px;
+            height: 24px;
+            fill: #6b5d54;
+        }
+
+        .bottom-bar a:hover svg {
+            fill: #3d3530;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .page-header {
+                padding: 3rem 1.5rem 2rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo" style="text-decoration: none; color: #3d3530;">ns</a>
+            <ul class="nav-links">
+                <li><a href="/about">about</a></li>
+                <li><a href="/articles">articles</a></li>
+                <li><a href="/gallery">gallery</a></li>
+                <li><a href="/contact">contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon">
+                            <path d="M12 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6zm0-10c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zM13 2h-2v3h2V2zm0 17h-2v3h2v-3zM5 11H2v2h3v-2zm17 0h-3v2h3v-2zM6.7 4.9L4.9 6.7l2.1 2.1 1.8-1.8-2.1-2.1zm12.7 12.7l-1.8-1.8-2.1 2.1 1.8 1.8 2.1-2.1zM4.9 17.3l1.8 1.8 2.1-2.1-1.8-1.8-2.1 2.1zm14.2-12.6l-2.1 2.1 1.8 1.8 2.1-2.1-1.8-1.8z"/>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1>Excerpts :)</h1>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <section class="section">
+        <!-- Add your content here -->
+    </section>
+
+    <footer>
+        <p>© 2024 Neeva Sethi</p>
+    </footer>
+
+    <!-- Fixed Bottom Bar -->
+    <div class="bottom-bar">
+        <div class="bottom-bar-left">
+            <a href="https://www.linkedin.com/in/neeva-sethi-29118b18b/" target="_blank" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+            </a>
+            <a href="https://github.com/neevasethi" target="_blank" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+            <a href="mailto:sethineeva@gmail.com" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const logo = document.querySelector('.logo');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            updateLogoColor();
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Save theme preference
+            const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            
+            updateLogoColor();
+        });
+
+        function updateLogoColor() {
+            if (body.classList.contains('dark-mode')) {
+                logo.style.color = '#e0e0e0';
+            } else {
+                logo.style.color = '#3d3530';
+            }
+        }
+    </script>
+</body>
+</html>
