@@ -162,7 +162,7 @@
         /* Page Header */
         .page-header {
             margin-top: 80px;
-            padding: 4rem 3rem 2rem;
+            padding: 2rem 3rem 1rem;
             background: #faf7f2;
         }
 
@@ -173,9 +173,9 @@
 
         .page-header h1 {
             font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 300;
-            margin-bottom: 1rem;
+            margin-bottom: 0;
             color: #3d3530;
         }
 
@@ -187,18 +187,14 @@
             margin-bottom: 100px;
         }
 
-        .about-container {
-            display: flex;
-            gap: 4rem;
-            align-items: flex-start;
-        }
-
         /* Image Cluster */
         .image-cluster {
+            float: left;
             position: relative;
-            min-width: 400px;
+            width: 420px;
             height: 450px;
-            flex-shrink: 0;
+            margin-right: 3rem;
+            margin-bottom: 2rem;
         }
 
         .cluster-image {
@@ -249,7 +245,7 @@
 
         /* About Text */
         .about-text {
-            flex: 1;
+            overflow: auto;
         }
 
         .about-text p {
@@ -267,15 +263,11 @@
 
         /* Mobile adjustments */
         @media (max-width: 968px) {
-            .about-container {
-                flex-direction: column;
-                gap: 3rem;
-            }
-
             .image-cluster {
-                min-width: 100%;
+                float: none;
+                width: 100%;
                 height: 400px;
-                margin: 0 auto;
+                margin: 0 auto 3rem auto;
             }
 
             .cluster-image:nth-child(1) {
@@ -349,11 +341,11 @@
             }
 
             .page-header {
-                padding: 3rem 1.5rem 2rem;
+                padding: 2rem 1.5rem 1rem;
             }
 
             .page-header h1 {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
 
             .about-section {
@@ -396,32 +388,30 @@
 
     <!-- About Section -->
     <section class="about-section">
-        <div class="about-container">
-            <!-- Image Cluster -->
-            <div class="image-cluster">
-                <div class="cluster-image">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Neeva 1">
-                </div>
-                <div class="cluster-image">
-                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop" alt="Neeva 2">
-                </div>
-                <div class="cluster-image">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" alt="Neeva 3">
-                </div>
+        <!-- Image Cluster -->
+        <div class="image-cluster">
+            <div class="cluster-image">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Neeva 1">
             </div>
+            <div class="cluster-image">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop" alt="Neeva 2">
+            </div>
+            <div class="cluster-image">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" alt="Neeva 3">
+            </div>
+        </div>
 
-            <!-- Text Content -->
-            <div class="about-text">
-                <p>Hi, I'm Neeva.</p>
-                
-                <p>I spend my days making large systems intelligible & zooming out to see how infrastructure, incentives, and human decisions quietly shape who gets access, scale, and power.</p>
-                
-                <p>My work lives at the intersection of technology, scale, and societal impact. As a software engineer at Microsoft, I've helped scale high-performance and AI infrastructure that underpins some of the world's most demanding workloads. Earlier, my path took me through biology, medicine-adjacent research, and health-tech projects, all of which are experiences that clarified a central conviction: meaningful progress in healthcare isn't just about innovation, but about how systems are designed, governed, and deployed at scale.</p>
-                
-                <p>Outside of work, I write and think about ambition, identity, and how people articulate what they care about, often discovering that clarity emerges through conversation itself. Travel grounds me in this curiosity; moving through new places reminds me that despite different languages, laws, and landscapes, we're all navigating the same human questions.</p>
-                
-                <p>Across everything, I'm drawn to building bridges: between logic and intuition, engineering and ethics, individual action and systemic change. I'm energized by people who think expansively, move with intention, and believe generosity is a form of leadership. If any of this resonates, I'd love to talk about what you're building, questioning, or trying to change.</p>
-            </div>
+        <!-- Text Content -->
+        <div class="about-text">
+            <p>Hi, I'm Neeva.</p>
+            
+            <p>I spend my days making large systems intelligible & zooming out to see how infrastructure, incentives, and human decisions quietly shape who gets access, scale, and power.</p>
+            
+            <p>My work lives at the intersection of technology, scale, and societal impact. As a software engineer at Microsoft, I've helped scale high-performance and AI infrastructure that underpins some of the world's most demanding workloads. Earlier, my path took me through biology, medicine-adjacent research, and health-tech projects, all of which are experiences that clarified a central conviction: meaningful progress in healthcare isn't just about innovation, but about how systems are designed, governed, and deployed at scale.</p>
+            
+            <p>Outside of work, I write and think about ambition, identity, and how people articulate what they care about, often discovering that clarity emerges through conversation itself. Travel grounds me in this curiosity; moving through new places reminds me that despite different languages, laws, and landscapes, we're all navigating the same human questions.</p>
+            
+            <p>Across everything, I'm drawn to building bridges: between logic and intuition, engineering and ethics, individual action and systemic change. I'm energized by people who think expansively, move with intention, and believe generosity is a form of leadership. If any of this resonates, I'd love to talk about what you're building, questioning, or trying to change.</p>
         </div>
     </section>
 
