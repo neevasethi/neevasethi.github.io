@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Neeva Sethi</title>
+    <title>Gallery - Neeva Sethi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -138,24 +138,12 @@
             background: #1f1f1f;
         }
 
-        body.dark-mode .page-header h1,
-        body.dark-mode .content-block h3 {
+        body.dark-mode .page-header h1 {
             color: #e0e0e0;
         }
 
-        body.dark-mode .page-header p,
-        body.dark-mode .content-block p,
-        body.dark-mode .content-block li {
-            color: #b0b0b0;
-        }
-
-        body.dark-mode .info-label,
         body.dark-mode .section-title {
             color: #808080;
-        }
-
-        body.dark-mode .info-value {
-            color: #b0b0b0;
         }
 
         body.dark-mode .separator {
@@ -173,6 +161,14 @@
 
         body.dark-mode .bottom-bar a:hover svg {
             fill: #e0e0e0;
+        }
+
+        body.dark-mode .gallery-item img {
+            opacity: 0.9;
+        }
+
+        body.dark-mode .gallery-item:hover img {
+            opacity: 1;
         }
 
         /* Page Header */
@@ -195,15 +191,9 @@
             color: #3d3530;
         }
 
-        .page-header p {
-            font-size: 1.1rem;
-            color: #6b5d54;
-            font-weight: 300;
-        }
-
         /* Section Styles */
         .section {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 3rem;
             margin-bottom: 80px;
@@ -218,99 +208,60 @@
             font-weight: 500;
         }
 
-        .content-block {
-            margin-bottom: 3rem;
+        /* Gallery Grid */
+        .gallery-grid {
+            column-count: 3;
+            column-gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .content-block h3 {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-            color: #3d3530;
-        }
-
-        .content-block .subtitle {
-            font-size: 1rem;
-            color: #6b5d54;
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .content-block p {
-            font-size: 1rem;
-            color: #6b5d54;
-            line-height: 1.8;
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
-
-        .content-block ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 1rem;
-        }
-
-        .content-block li {
-            font-size: 1rem;
-            color: #6b5d54;
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
+        .gallery-item {
             position: relative;
-            font-weight: 300;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            display: inline-block;
+            width: 100%;
         }
 
-        .content-block li:before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: #d4c9bc;
+        .gallery-item:hover {
+            transform: translateY(-10px) rotate(1deg);
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .gallery-item:nth-child(even):hover {
+            transform: translateY(-10px) rotate(-1deg);
         }
 
-        .info-item {
-            padding: 0;
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .info-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #a89582;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+        .gallery-item:hover img {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .info-value {
-            font-size: 1rem;
-            color: #4a4238;
-            font-weight: 300;
+        /* Different heights for variety */
+        .gallery-item:nth-child(3n+1) img {
+            aspect-ratio: 3/4;
+            object-fit: cover;
         }
 
-        .links {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
+        .gallery-item:nth-child(3n+2) img {
+            aspect-ratio: 4/3;
+            object-fit: cover;
         }
 
-        .links a {
-            text-decoration: none;
-            color: #6b5d54;
-            font-size: 0.95rem;
-            font-weight: 300;
-            transition: color 0.3s;
-            border-bottom: 1px solid transparent;
-        }
-
-        .links a:hover {
-            color: #3d3530;
-            border-bottom: 1px solid #3d3530;
+        .gallery-item:nth-child(3n+3) img {
+            aspect-ratio: 1/1;
+            object-fit: cover;
         }
 
         /* Separator */
@@ -391,8 +342,19 @@
                 padding: 3rem 1.5rem;
             }
 
-            .info-grid {
-                grid-template-columns: 1fr;
+            .gallery-grid {
+                column-count: 2;
+                column-gap: 1.5rem;
+            }
+
+            .gallery-item {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                column-count: 1;
             }
         }
     </style>
@@ -427,7 +389,51 @@
 
     <!-- Content Section -->
     <section class="section">
-        <!-- Add your content here -->
+        <h2 class="section-title">Life</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=600&fit=crop" alt="Life moment 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=600&fit=crop" alt="Life moment 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=600&fit=crop" alt="Life moment 3">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=600&fit=crop" alt="Life moment 4">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1543269664-76bc3997d9ea?w=600&h=600&fit=crop" alt="Life moment 5">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=600&fit=crop" alt="Life moment 6">
+            </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <h2 class="section-title">Travel</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=600&fit=crop" alt="Travel moment 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&h=600&fit=crop" alt="Travel moment 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=600&h=600&fit=crop" alt="Travel moment 3">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=600&h=600&fit=crop" alt="Travel moment 4">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=600&fit=crop" alt="Travel moment 5">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1476900543704-4312b78632f8?w=600&h=600&fit=crop" alt="Travel moment 6">
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -478,7 +484,7 @@
             updateLogoColor();
         });
 
-    function updateLogoColor() {
+        function updateLogoColor() {
             if (body.classList.contains('dark-mode')) {
                 logo.style.color = '#e0e0e0';
                 logo.style.borderColor = '#e0e0e0';
