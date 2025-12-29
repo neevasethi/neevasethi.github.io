@@ -138,28 +138,12 @@
             background: #1f1f1f;
         }
 
-        body.dark-mode .page-header h1,
-        body.dark-mode .content-block h3 {
+        body.dark-mode .page-header h1 {
             color: #e0e0e0;
         }
 
-        body.dark-mode .page-header p,
-        body.dark-mode .content-block p,
-        body.dark-mode .content-block li {
+        body.dark-mode .about-text p {
             color: #b0b0b0;
-        }
-
-        body.dark-mode .info-label,
-        body.dark-mode .section-title {
-            color: #808080;
-        }
-
-        body.dark-mode .info-value {
-            color: #b0b0b0;
-        }
-
-        body.dark-mode .separator {
-            background: #333;
         }
 
         body.dark-mode .bottom-bar {
@@ -183,7 +167,7 @@
         }
 
         .page-header-content {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -195,138 +179,115 @@
             color: #3d3530;
         }
 
-        .page-header p {
-            font-size: 1.1rem;
-            color: #6b5d54;
-            font-weight: 300;
-        }
-
-        /* Section Styles */
-        .section {
-            max-width: 900px;
+        /* About Section */
+        .about-section {
+            max-width: 1100px;
             margin: 0 auto;
             padding: 4rem 3rem;
-            margin-bottom: 80px;
+            margin-bottom: 100px;
         }
 
-        .section-title {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #a89582;
-            margin-bottom: 3rem;
-            font-weight: 500;
-        }
-
-        .content-block {
-            margin-bottom: 3rem;
-        }
-
-        .content-block h3 {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-            color: #3d3530;
-        }
-
-        .content-block .subtitle {
-            font-size: 1rem;
-            color: #6b5d54;
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .content-block p {
-            font-size: 1rem;
-            color: #6b5d54;
-            line-height: 1.8;
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
-
-        .content-block ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 1rem;
-        }
-
-        .content-block li {
-            font-size: 1rem;
-            color: #6b5d54;
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
+        /* Image Cluster */
+        .image-cluster {
+            float: left;
             position: relative;
-            font-weight: 300;
+            width: 420px;
+            height: 450px;
+            margin-right: 3rem;
+            margin-bottom: 2rem;
         }
 
-        .content-block li:before {
-            content: "—";
+        .cluster-image {
             position: absolute;
-            left: 0;
-            color: #d4c9bc;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .info-item {
-            padding: 0;
-        }
-
-        .info-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #a89582;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .info-value {
-            font-size: 1rem;
-            color: #4a4238;
-            font-weight: 300;
-        }
-
-        .links {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .links a {
-            text-decoration: none;
-            color: #6b5d54;
-            font-size: 0.95rem;
-            font-weight: 300;
-            transition: color 0.3s;
-            border-bottom: 1px solid transparent;
-        }
-
-        .links a:hover {
-            color: #3d3530;
-            border-bottom: 1px solid #3d3530;
-        }
-
-        /* Separator */
-        .separator {
+        .cluster-image img {
             width: 100%;
-            height: 1px;
-            background: #e8e1d6;
-            margin: 4rem 0;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cluster-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+
+        /* Position images in overlapping arrangement */
+        .cluster-image:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 0;
+            left: 0;
+            z-index: 3;
+        }
+
+        .cluster-image:nth-child(2) {
+            width: 240px;
+            height: 180px;
+            top: 120px;
+            left: 160px;
+            z-index: 2;
+        }
+
+        .cluster-image:nth-child(3) {
+            width: 180px;
+            height: 220px;
+            top: 220px;
+            left: 20px;
+            z-index: 1;
+        }
+
+        /* About Text */
+        .about-text {
+            overflow: auto;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            color: #6b5d54;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .about-text p:first-child {
+            font-size: 1.15rem;
+            color: #4a4238;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 968px) {
+            .image-cluster {
+                float: none;
+                width: 100%;
+                height: 400px;
+                margin: 0 auto 3rem auto;
+            }
+
+            .cluster-image:nth-child(1) {
+                width: 180px;
+                height: 180px;
+            }
+
+            .cluster-image:nth-child(2) {
+                width: 200px;
+                height: 160px;
+                left: 140px;
+            }
+
+            .cluster-image:nth-child(3) {
+                width: 160px;
+                height: 200px;
+            }
         }
 
         footer {
-            text-align: center;
-            padding: 3rem;
-            color: #a89582;
-            font-size: 0.9rem;
-            font-weight: 300;
             display: none;
         }
 
@@ -387,12 +348,12 @@
                 font-size: 2rem;
             }
 
-            .section {
+            .about-section {
                 padding: 3rem 1.5rem;
             }
 
-            .info-grid {
-                grid-template-columns: 1fr;
+            .about-text p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -425,9 +386,33 @@
         </div>
     </div>
 
-    <!-- Content Section -->
-    <section class="section">
-        <!-- Add your content here -->
+    <!-- About Section -->
+    <section class="about-section">
+        <!-- Image Cluster -->
+        <div class="image-cluster">
+            <div class="cluster-image">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Neeva 1">
+            </div>
+            <div class="cluster-image">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop" alt="Neeva 2">
+            </div>
+            <div class="cluster-image">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" alt="Neeva 3">
+            </div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="about-text">
+            <p>Hi, I'm Neeva.</p>
+            
+            <p>I spend my days making large systems intelligible & zooming out to see how infrastructure, incentives, and human decisions quietly shape who gets access, scale, and power.</p>
+            
+            <p>My work lives at the intersection of technology, scale, and societal impact. As a software engineer at Microsoft, I've helped scale high-performance and AI infrastructure that underpins some of the world's most demanding workloads. Earlier, my path took me through biology, medicine-adjacent research, and health-tech projects, all of which are experiences that clarified a central conviction: meaningful progress in healthcare isn't just about innovation, but about how systems are designed, governed, and deployed at scale.</p>
+            
+            <p>Outside of work, I write and think about ambition, identity, and how people articulate what they care about, often discovering that clarity emerges through conversation itself. Travel grounds me in this curiosity; moving through new places reminds me that despite different languages, laws, and landscapes, we're all navigating the same human questions.</p>
+            
+            <p>Across everything, I'm drawn to building bridges: between logic and intuition, engineering and ethics, individual action and systemic change. I'm energized by people who think expansively, move with intention, and believe generosity is a form of leadership. If any of this resonates, I'd love to talk about what you're building, questioning, or trying to change.</p>
+        </div>
     </section>
 
     <footer>
